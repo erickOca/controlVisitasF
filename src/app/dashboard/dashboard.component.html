@@ -1,0 +1,69 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <h1 class="resaltado">Lista de Carreras</h1>
+       
+            
+            <div class="col-md-12">
+           
+                
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Carreras Activas</h4>
+                      <p class="card-category"> Here is a subtitle for this table</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class=" text-primary">
+                              <th>
+                                  Nombre
+                              </th>
+                              <th>
+                                  Nivel
+                              </th>
+                              <th>
+                                  Estado
+                              </th>
+                              <th>
+                                  Division
+                              </th>
+                          </thead>
+                          <tbody>
+                            <tr       *ngFor="let carreras of listCarrera">
+
+                                  <td>
+                                    {{ carreras.id}}
+                                  </td>
+                                  <td>
+                                    {{ carreras.nombre}}
+                                  </td>
+                                  <td>
+                                    {{ carreras.abreviatura }}
+                                  </td>
+                                  <td>
+                                    {{ carreras.activo === 1 ? 'Activa' : 'inactiva' }}
+                                  </td>
+                              </tr>
+
+                          </tbody>
+                      </table>
+        
+      </div>
+      <div class="grafica">
+          <!-- <ngx-charts-bar-vertical 
+  [view]="[700,400]"
+  [results]="saleData"
+  [xAxisLabel]="'Grafica de Visitas a la Biblioteca'"
+  [legendTitle]="'Visitas'"
+  [yAxisLabel]="'VISITAS'"
+  [legend]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxis]="true"
+  [yAxis]="true"
+  [gradient]="true">
+</ngx-charts-bar-vertical> -->
+      </div>
+  </div>
+</div>

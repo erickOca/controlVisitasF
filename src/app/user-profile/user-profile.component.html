@@ -1,0 +1,157 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <h1 class="resaltado">Reportes Globales</h1>
+      <div class="fechas">
+        <label for="fechaInicio">Buscar por Fecha:</label>
+        <input
+          type="date"
+          id="fechaInicio"
+          name="fechaInicio"
+          [(ngModel)]="fechaInicio"
+        />
+        <label>a</label>
+        <input
+          type="date"
+          id="fechaFin"
+          name="fechaFin"
+          [(ngModel)]="fechaFin"
+        />
+        <button
+          mat-raised-button
+          style="background-color: #42a5f5"
+          (click)="consumirServicio()"
+        >
+          Buscar
+        </button>
+        <button
+          mat-raised-button
+          style="margin: 10px; background-color: darkgray"
+          (click)="limpiarCampos()"
+        >
+          Limpiar
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Estadisticas Globales</h4>
+            <p class="card-category">Globales</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>Nombre de Área</th>
+                  <th>Visitas Recibidas</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alumnos</td>
+                    <td>{{ alumnos }}</td>
+                  </tr>
+                  <tr>
+                    <td>Personal</td>
+                    <td>{{ personal }}</td>
+                  </tr>
+                  <tr>
+                    <td>Externos</td>
+                    <td>{{ externos }}</td>
+                  </tr>
+                  <tr>
+                    <td>Total de Visitas por Ambas Áreas</td>
+                    <td>{{ totalVisitas }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="grafica">
+              <ngx-charts-bar-vertical
+                [view]="[700, 400]"
+                [results]="saleData"
+                [xAxisLabel]="'Grafica de Visitas a la Biblioteca'"
+                [legendTitle]="'Visitas'"
+                [yAxisLabel]="'VISITAS'"
+                [legend]="true"
+                [showXAxisLabel]="true"
+                [showYAxisLabel]="true"
+                [xAxis]="true"
+                [yAxis]="true"
+                [gradient]="true"
+              >
+              </ngx-charts-bar-vertical>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Estadisticas de Visitas por Nivel</h4>
+            <p class="card-category">Visitas por nivel</p>
+          </div>
+          <div class="card-body">
+            <label for="fechaInicio">Buscar por Fecha:</label>
+            <input
+              type="date"
+              id="fechaInicio"
+              name="fechaInicio"
+              [(ngModel)]="fechaInicioN"
+            />
+            <label>a</label>
+            <input
+              type="date"
+              id="fechaFin"
+              name="fechaFin"
+              [(ngModel)]="fechaFinN"
+            />
+            <button
+              mat-raised-button
+              style="background-color: #42a5f5"
+              (click)="obtenerVisitasPorNiveles()"
+            >
+              Buscar
+            </button>
+            <button
+              mat-raised-button
+              style="margin: 10px; background-color: darkgray"
+              (click)="limpiarFormulario()"
+            >
+              Limpiar
+            </button>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>Nivel</th>
+                  <th>Visitas por Nivel</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of nivelDat">
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.visitasPorCarreta }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="grafica">
+              <ngx-charts-bar-vertical
+              [view]="[700, 400]"
+              [results]="nivelData"
+              [xAxisLabel]="'Grafica de Visitas a la Biblioteca'"
+              [legendTitle]="'Visitas'"
+              [yAxisLabel]="'VISITAS'"
+              [legend]="true"
+              [showXAxisLabel]="true"
+              [showYAxisLabel]="true"
+              [xAxis]="true"
+              [yAxis]="true"
+              [gradient]="true"
+            >
+            </ngx-charts-bar-vertical>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

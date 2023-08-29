@@ -1,0 +1,81 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Area de Libros</h4>
+              
+              <p class="card-category">Coleccion de Libros</p>
+            </div>
+           
+            <div class="card-body">
+              <button mat-raised-button color="primary" 
+              id="userButon"
+              (click)="isDivVisible = !isDivVisible"
+              mat-raised-button
+            >
+              Agregar
+            </button>
+            <div class="col-md-4" *ngIf="isDivVisible">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title">Agregar Nuevo Libro</h4>
+                  <p class="card-category">Formulario para Nuevo Libro</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="titulo">Título:</label>
+                      <input class="form-control" type="text" id="titulo" [(ngModel)]="nuevoLibro.titulo" name="titulo" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="autor">Autor:</label>
+                      <input class="form-control" type="text" id="autor" [(ngModel)]="nuevoLibro.autor" name="autor" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="categoria">Categoría:</label>
+                      <input class="form-control" type="text" id="categoria" [(ngModel)]="nuevoLibro.categoria" name="categoria" required>
+                    </div>
+                    <button class="btn btn-primary" (click)="libro()">Agregar Libro</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-primary">
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Fecha</th>
+                    <th>Estatus</th>
+                    <th>Acciones</th>
+
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let libro of libros">
+                      <td>{{ libro.idLibro }}</td>
+                      <td>{{ libro.titulo }}</td>
+                      <td>{{ libro.autor }}</td>
+                      <td>{{ libro.fechaIngreso }}</td>
+                      <td>
+                        <span *ngIf="libro.status === 1">Disponible</span>
+                        <span *ngIf="libro.status === 0">No disponible</span>
+                      </td>
+                      <td>
+                        <button class="btn btn-danger" (click)="borrarLibro(libro.idLibro)">Eliminar</button>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

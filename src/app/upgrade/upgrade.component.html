@@ -1,0 +1,86 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Area de Prestamo</h4>
+              
+              <p class="card-category">Prestamo de Libros</p>
+            </div>
+           
+            <div class="card-body">
+              <button mat-raised-button color="primary" 
+              id="userButon"
+              (click)="isDivVisible = !isDivVisible"
+              mat-raised-button
+            >
+              Agregar
+            </button>
+            <div class="col-md-4" *ngIf="isDivVisible">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title">Agregar Nuevo Prestamo</h4>
+                  <p class="card-category">Formulario para Nuevo Prestamo</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="categoria">Nombre:</label>
+                      <input class="form-control" type="text" id="nombre" [(ngModel)]="prestamoRequest.nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="titulo">Matricula Estudiante:</label>
+                      <input class="form-control"  type="text" id="matriculaEst" [(ngModel)]="prestamoRequest.matriculaEst" name="matriculaEst" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="autor">Libro:</label>
+                      <input class="form-control" type="text" id="tituloLibro" [(ngModel)]="prestamoRequest.tituloLibro" name="tituloLibro" required>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="categoria">Nombre Empleado:</label>
+                      <input class="form-control" type="text" id="empleadoPresta" [(ngModel)]="prestamoRequest.empleadoPresta" name="empleadoPresta" required>
+                    </div>
+                    <button class="btn btn-primary"(click)="consumirServicio()">Agregar</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-primary">
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Matricula</th>
+                    <th>Libro</th>
+                    <th>Fecha Prestamo</th>
+                    <th>Fecha Devolucion</th>
+                    <th>Empleado</th>
+                    <th>Acciones</th>
+
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let prestamo of prestamos">
+      <td>{{ prestamo.idPrestamo }}</td>
+      <td>{{ prestamo.nombre }}</td>
+      <td>{{ prestamo.matriculaEst }}</td>
+      <td>{{ prestamo.libro.titulo }}</td>
+      <td>{{ prestamo.fechaPrestamo }}</td>
+      <td>{{ prestamo.fechaDevolucion }}</td>
+      <td>{{ prestamo.empleadoPresta }}</td>
+      <td>
+        <button btn btn-danger (click)="eliminarPrestamo(prestamo.idPrestamo)">Eliminar</button>
+      </td> 
+    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

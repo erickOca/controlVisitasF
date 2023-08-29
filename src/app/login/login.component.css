@@ -1,0 +1,132 @@
+body {
+    background: linear-gradient(to bottom, #03a541, #f6fbfc, #04943C);
+    color: #000; /* Cambié el color de las letras a negro */
+    padding-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  h1,
+  h2,
+  p,
+  label {
+    color: #000; /* Cambié el color de las letras a negro */
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .form-control {
+    background-color:#f6fbfc;
+    color: #000; /* Cambié el color de las letras a negro */
+  }
+
+  .form-label {
+    font-size: 20px;
+  }
+
+
+
+  .animate__animated {
+    animation-duration: 1s;
+    animation-fill-mode: initial;
+  }
+
+  .animate__fadeInDown {
+    animation-name: fadeInDown;
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .line-animation {
+    position: relative;
+    height: 2px;
+    background: linear-gradient(to right, #000, #ff9900, #000); /* Cambié el color del gradiente a negro y naranja */
+    margin: 20px auto;
+    width: 80%;
+    animation: lineMove 2s infinite;
+  }
+
+  @keyframes lineMove {
+    0% {
+      left: 0;
+      width: 0;
+    }
+
+    50% {
+      left: 0;
+      width: 100%;
+    }
+
+    100% {
+      left: 100%;
+      width: 0;
+    }
+  }
+
+  .visit-label {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .visit-button {
+    background-color: transparent;
+    border: 1px solid #000; /* Cambié el color del borde a negro */
+    color: #000; /* Cambié el color de las letras a negro */
+    padding: 6px 12px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  .visit-button:hover {
+    background-color: #000000; /* Cambié el color de fondo al pasar el mouse a negro */
+    color: #ff9900;
+  }
+  .animated-image {
+    animation: fade 5s infinite;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

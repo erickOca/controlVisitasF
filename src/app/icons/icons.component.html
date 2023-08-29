@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="resaltado">Reportes de Visitas Externas</h1>
+            <div class="fechas">
+              <label for="fechaInicio">Buscar por Fecha:</label>
+              <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio" name="fechaInicio" />
+              <label>a</label>
+              <input type="date" id="fechaFin" [(ngModel)]="fechaFin" name="fechaFin" />
+              <button mat-raised-button style="background-color: #42a5f5" (click)="buscar()">Buscar</button>
+              <button mat-raised-button style="margin: 10px; background-color: darkgray">Limpiar</button>
+              </div>
+              <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Estadisticas por Areas</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table">
+                            <thead class="text-primary">
+                              <th>
+                                Nombre de Área
+                              </th>
+                              <th>
+                                Visitas Recibidas
+                              </th>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let resultado of resultados">
+                                <td>{{ resultado.nombre }}</td>
+                                <td>{{ resultado.visitas }}</td>
+                              </tr>
+                          
+                            </tbody>
+                          </table>
+          
+        </div>
+        <div class="grafica">
+             <ngx-charts-bar-vertical 
+    [view]="[700,400]"
+    [results]="chartData"
+    [xAxisLabel]="'Grafica de Visitas a la Biblioteca'"
+    [legendTitle]="'Visitas'"
+    [yAxisLabel]="'VISITAS'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+  </ngx-charts-bar-vertical> 
+        </div>
+    </div>
+  </div>

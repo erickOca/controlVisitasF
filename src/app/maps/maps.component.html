@@ -1,0 +1,132 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="resaltado">Personal Registrado</h1>
+            <div class="fechas">
+              <button mat-raised-button color="primary" 
+              id="userButon"
+              (click)="isDivVisible = !isDivVisible"
+              mat-raised-button
+            >
+              Nuevo usuario
+            </button>
+              </div>
+              
+              <div class="col-md-12">
+             
+                  <div class="col-md-4" *ngIf="isDivVisible">
+                    <div class="card">
+                    <div class="card-header card-header-danger">
+                      <h4 class="card-title">Crear Empleado</h4>
+          
+                      <p class="card-category">Formulario para Nuevo Empleado</p>
+                    </div>
+                    <div class="card-body">
+                      <form action="">
+                        <mat-form-field appearance="fill">
+                          <mat-label> Nombre </mat-label>
+                          <input
+                            matInput
+                            type="usuario_nombre"
+                            id="usuario_nombre"
+                            name="usuario_nombre"
+                            required
+                          />
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                          <mat-label> Puesto </mat-label>
+                          <input
+                            matInput
+                            type="password"
+                            id="usuario_pwd"
+                            name="usuario_pwd"
+                            name="usuario_pwd"
+                            required
+                          />
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                          <mat-label> Area </mat-label>
+                          <input
+                            matInput
+                            type="password"
+                            id="usuario_pwd"
+                            name="usuario_pwd"
+                            name="usuario_pwd"
+                            required
+                          />
+                        </mat-form-field>
+                    
+                        <button mat-raised-button color="primary">
+                          Nuevo
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Estadisticas por Areas</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table">
+                            <thead class=" text-primary">
+                                <th>
+                                    ID
+                                </th>
+                                <th>
+                                    Nombre
+                                </th>
+                                <th>
+                                    Puesto
+                                </th>
+                                <th>
+                                    Area
+                                </th>
+                                <th>
+                                    Acciones
+                                </th>
+                            </thead>
+                            <tbody>
+                                <tr       *ngFor="let empleados of listEmpleados">
+                                    <td>
+                                        {{ empleados.numEmpleado}}
+                                    </td>
+                                    <td>
+                                      {{ empleados.nombre}}
+                                    </td>
+                                    <td>
+                                      {{ empleados.puesto}}
+
+                                    </td>
+                                    <td>
+                                      {{ empleados.area}}
+                                    </td>
+                                    <td class="text-primary">
+                                      <button mat-raised-button color="primary" style="margin: 10px;">Actualizar</button>
+                                      <button mat-raised-button color="warn">Eliminar</button>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+          
+        </div>
+        <div class="grafica">
+            <!-- <ngx-charts-bar-vertical 
+    [view]="[700,400]"
+    [results]="saleData"
+    [xAxisLabel]="'Grafica de Visitas a la Biblioteca'"
+    [legendTitle]="'Visitas'"
+    [yAxisLabel]="'VISITAS'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+  </ngx-charts-bar-vertical> -->
+        </div>
+    </div>
+  </div>
