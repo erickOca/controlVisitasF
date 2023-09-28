@@ -1,0 +1,35 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+    <div class="contenedor">    <div class="header">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <h3 class="navbar-brand font-weight-bold" style="font-color: green;">Lista de Libros</h3>
+            <form class="form-inline mx-auto"> <!-- Agregamos la clase mx-auto aquí -->
+                <input class="form-control" type="search" placeholder="Search" [(ngModel)]="busquedaTitulo" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="buscarLibros()">Buscar</button>
+              </form>
+          </nav>
+    </div>
+<table class="table">
+    <thead class="thead-dark "> <!-- Agrega la clase cabecera-verde aquí -->
+        <tr>
+        <th scope="col">Título</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Clasificación</th>
+        <th scope="col">Prestado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let libro of libros">
+        <td scope="row">{{ libro.titulo }}</td>
+        <td>{{ libro.autor }}</td>
+        <td>{{ libro.clasificacion }}</td>
+        <td>{{ libro.prestado }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>

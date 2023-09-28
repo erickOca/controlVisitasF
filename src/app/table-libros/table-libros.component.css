@@ -1,0 +1,10 @@
+.header {
+    background-color: green; /* Fondo verde */
+    color: white; /* Texto blanco */
+    margin-top: 20px; /* Margen superior de 20px */
+    /* Otros estilos que desees agregar */
+  }
+
+.contenedor{
+    margin: 20px;
+}

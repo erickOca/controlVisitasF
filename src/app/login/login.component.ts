@@ -230,4 +230,21 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+  libros() {
+    Swal.fire({
+      title: '¿Estás seguro de ir a la pantalla de libros?',
+      text: 'Puedes perder los cambios no guardados.',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, ir a la pantalla de libros',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario confirma, navega a la pantalla de libros
+        this.router.navigate(['libros']);
+      }
+    });
+  }
 }
